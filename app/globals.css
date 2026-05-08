@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-ink text-bone font-sans antialiased;
+    font-feature-settings: "ss01", "ss02";
+  }
+  ::selection {
+    @apply bg-bone text-ink;
+  }
+}
+
+@layer utilities {
+  .container-x {
+    @apply mx-auto w-full max-w-[1600px] px-6 md:px-10 lg:px-16;
+  }
+  .eyebrow {
+    @apply text-[11px] uppercase tracking-editorial text-ash;
+  }
+  .hairline { @apply h-px w-full bg-line; }
+
+  .hover-img img {
+    transition: transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.6s ease;
+  }
+  .hover-img:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.05) contrast(1.02);
+  }
+
+  .marquee-track { animation: marquee 38s linear infinite; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1px rgba(244,241,236,0.45);
+    color: transparent;
+  }
+
+  .grain::after {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 60;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.9'/></svg>");
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
