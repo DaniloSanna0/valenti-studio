@@ -101,6 +101,7 @@ function Hero() {
       {/* Mobile / tablet: video verticale */}
       <video
         className="absolute inset-0 h-full w-full object-cover md:hidden"
+        style={{ objectPosition: "center 15%" }}
         autoPlay muted loop playsInline preload="auto"
         poster={HERO_FALLBACK}
       >
@@ -114,7 +115,7 @@ function Hero() {
         priority
         quality={100}
         sizes="100vw"
-        className="hidden md:block object-cover object-[80%_15%] scale-x-[-1]"
+        className="hidden md:block object-cover object-[80%_30%] scale-x-[-1]"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/15 to-ink" />
       <div className="absolute inset-0 bg-ink/25" />
