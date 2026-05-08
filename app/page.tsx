@@ -63,7 +63,7 @@ export default function Home() {
 
 function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 backdrop-blur-md bg-ink/40">
+    <header className="fixed inset-x-0 top-0 z-50 backdrop-blur-md bg-[#1e3033] md:bg-ink/40">
       <div className="container-x flex h-16 items-center justify-between">
         <a href="#" data-cursor="Home" className="font-serif text-xl tracking-wide">
           Marco<span className="text-ash"> · </span>Valenti
@@ -99,14 +99,15 @@ function Hero() {
   return (
     <section className="relative h-[100svh] min-h-[700px] w-full overflow-hidden">
       {/* Mobile / tablet: video verticale */}
-      <video
-        className="absolute inset-0 h-full w-full object-cover md:hidden"
-        style={{ objectPosition: "center 15%" }}
-        autoPlay muted loop playsInline preload="auto"
-        poster={HERO_FALLBACK}
-      >
-        <source src={HERO_VIDEO} type="video/mp4" />
-      </video>
+      <div className="absolute inset-0 overflow-hidden md:hidden">
+        <video
+          className="absolute left-1/2 top-0 h-full w-auto min-w-full -translate-x-1/2 translate-y-[5%] max-w-none"
+          autoPlay muted loop playsInline preload="auto"
+          poster={HERO_FALLBACK}
+        >
+          <source src={HERO_VIDEO} type="video/mp4" />
+        </video>
+      </div>
       {/* Desktop: still editoriale */}
       <Image
         src={HERO_DESKTOP}
